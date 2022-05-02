@@ -13,10 +13,10 @@ let new_id = "...!@BaT#*..y.abcdefghijklm";
 
 function solution(new_id){
     const answer = "";
-    let lower_id = new_id.toLowerCase(new_id)//1단계 
-                        .replace(/[^\w-_.]/g,'')//2단계
-                        .replace(/[\.]{2,}/g,'.')//3단계
-                        .replace(/^\.|\.$/g,'');//4단계
+    let lower_id = new_id.toLowerCase(new_id)//1단계  
+                        .replace(/[^\w-_.]/g,'')//2단계 [^\w-_.]
+                        .replace(/[\.]{2,}/g,'.')//3단계[\.{2,}/g,"."]
+                        .replace(/^\.|\.$/g,'');//4단계 [^],/^\. || | $끝 
 
     if(lower_id==""){
         
@@ -24,13 +24,13 @@ function solution(new_id){
 
     }
     if(lower_id.length>=16){
-        lower_id=lower_id.slice(0,15);
+        lower_id=lower_id.slice(0,15);//slice 
     }
     lower_id=lower_id.replace(/\.$/,"");
 
     while(lower_id.length<=2){
 
-        lower_id +=lower_id.charAt(lower_id-1);
+        lower_id += lower_id.charAt(lower_id.length-1);//배열에서 문자가져오는거 [a length 길이 문자의 끝] 한문자만 가져오니깐 
 
     }        
     
